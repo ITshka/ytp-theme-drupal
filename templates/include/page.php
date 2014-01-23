@@ -76,6 +76,14 @@
 
 <?php include("/var/www/shared/templates/body-navigation.php"); /* YTP common navigation */ ?>
 
+
+<?php if (!empty($page['highlighted'])): ?>
+  <div class="container">
+    <div class="highlighted"><?php print render($page['highlighted']); ?></div>
+  </div>
+<?php endif; ?>
+
+
 <div class="main-container container">
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
@@ -84,6 +92,8 @@
 
     <?php print render($page['header']); ?>
   </header> <!-- /#page-header -->
+
+
 
   <div class="row">
     <?php if (!empty($page['sidebar_first'])): ?>
@@ -98,9 +108,6 @@
           print $ytp_custom_top;
         }
       ?>
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-      <?php endif; ?>
       <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
