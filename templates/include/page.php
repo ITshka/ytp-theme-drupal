@@ -74,7 +74,7 @@
  */
 ?>
 
-<?php include("/var/www/shared/templates/body-navigation.php"); /* YTP common navigation */ ?>
+<?php include("/var/www/resources/templates/body-navigation.php"); /* YTP common navigation */ ?>
 
 
 <?php if (!empty($page['highlighted'])): ?>

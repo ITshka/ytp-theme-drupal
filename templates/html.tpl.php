@@ -52,14 +52,14 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
-  <?php include("/var/www/shared/templates/head-styles-drupal.html"); /* YTP common styles */ ?>
-  <?php include("/var/www/shared/templates/head-styles.html"); /* YTP common styles */ ?>
+  <?php include("/var/www/resources/templates/head-styles-drupal.html"); /* YTP common styles */ ?>
+  <?php include("/var/www/resources/templates/head-styles.html"); /* YTP common styles */ ?>
   <!-- HTML5 element support for IE6-8 -->
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <?php print $scripts; ?>
-  <?php include("/var/www/shared/templates/head-scripts.html"); /* YTP common scripts */ ?> 
+  <?php include("/var/www/resources/templates/head-scripts.html"); /* YTP common scripts */ ?> 
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">

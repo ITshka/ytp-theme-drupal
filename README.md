@@ -13,9 +13,9 @@ Setup
 This project requires files from [ytp-assets-common](https://github.com/yhteentoimivuuspalvelut/ytp-assets-common).
 
     git clone https://github.com/yhteentoimivuuspalvelut/ytp-assets-common.git
-    sudo cp ytp-assets-common/distribution /var/www/shared
+    sudo cp ytp-assets-common/resources /var/www/resources
 
-Map /var/www/shared to /resources on web server.
+Map /var/www/resources to /resources on web server.
 
 Install
 -------
