@@ -58,7 +58,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <?php print $scripts; ?>
-  <?php include("/var/www/resources/templates/head-scripts.html"); /* YTP common scripts */ ?> 
+
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
