@@ -45,6 +45,8 @@ function ytp_theme_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="col-sm-12"';
   }
 
+
+
   // Primary nav.
   $variables['primary_nav'] = FALSE;
   if ($variables['main_menu']) {
@@ -88,7 +90,30 @@ function ytp_theme_process_page(&$variables) {
   $variables['navbar_classes'] = implode(' ', $variables['navbar_classes_array']);
 }
 
+/**
+ * Override or insert variables into the html template.
+ */
+function ytp_theme_preprocess_html(&$variables) {
+   switch (theme_get_setting('bootstrap_navbar_position')) {
+       case 'fixed-top':
+         $variables['classes_array'][] = 'navbar-is-fixed-top';
+         break;
 
+       case 'fixed-bottom':
+         $variables['classes_array'][] = 'navbar-is-fixed-bottom';
+         break;
+
+       case 'static-top':
+         $variables['classes_array'][] = 'navbar-is-static-top';
+         break;
+   }
+   $domain = "avoidata.fi";
+   if (!empty($_SERVER['HTTP_HOST']) && !is_numeric($_SERVER['HTTP_HOST'][0])) {
+    $domain = implode('.', array_slice(explode('.', $_SERVER['HTTP_HOST']), -2));
+   }
+
+   $variables['head_title'] = implode(' - ', array(drupal_get_title(), $domain));
+}
 
 /**
  * Overrides theme_menu_link().
