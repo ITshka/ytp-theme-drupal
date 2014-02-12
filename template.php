@@ -112,7 +112,14 @@ function ytp_theme_preprocess_html(&$variables) {
     $domain = implode('.', array_slice(explode('.', $_SERVER['HTTP_HOST']), -2));
    }
 
-   $variables['head_title'] = implode(' - ', array(drupal_get_title(), $domain));
+    $title = drupal_get_title();
+    if ( $title == '' ){
+        $variables['head_title'] = $domain;
+    }
+    else{
+        $variables['head_title'] = implode(' - ', array(drupal_get_title(), $domain));
+    }
+
 }
 
 /**
