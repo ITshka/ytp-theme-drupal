@@ -79,6 +79,15 @@ function ytp_theme_preprocess_page(&$variables) {
   else {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
+
+  $site_section = menu_get_active_trail();
+  if ( array_key_exists(1, $site_section) ){
+    $variables['site_section'] = $site_section[1]['title'];
+  }
+  else{
+    $variables['site_section'] = '';
+  }
+ 
 }
 
 /**
