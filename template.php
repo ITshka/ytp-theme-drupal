@@ -107,7 +107,7 @@ function ytp_theme_preprocess_html(&$variables) {
          $variables['classes_array'][] = 'navbar-is-static-top';
          break;
    }
-   $domain = "avoidata.fi";
+   $domain = "avoindata.fi";
    if (!empty($_SERVER['HTTP_HOST']) && !is_numeric($_SERVER['HTTP_HOST'][0])) {
     $domain = implode('.', array_slice(explode('.', $_SERVER['HTTP_HOST']), -2));
    }
@@ -130,14 +130,17 @@ function ytp_theme_menu_link(&$variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
-  if ($element['#below']) {
-    // Prevent dropdown functions from being added to management menu so it does not affect the navbar module.
+  if (isset($element['#bid']) && ($element['#bid']['module'] == 'menu_block')) {
+      $element['#attributes']['class'][] = 'ytp-menulink';
+  } 
 
-    /*if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {*/
+  if ($element['#below']) {
+
+    // Prevent dropdown functions from being added to management menu so it does not affect the navbar module.
     if (($element['#original_link']['menu_name'] == 'management' && module_exists('navbar'))
         || ((!empty($element['#original_link']['depth']))
         && (isset($element['#bid']) && $element['#bid']['module'] == 'menu_block'))) {
-           $sub_menu = drupal_render($element['#below']);
+            $sub_menu = drupal_render($element['#below']);
     }
     elseif ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] == 1)) {
       // Add our own wrapper.
@@ -160,6 +163,7 @@ function ytp_theme_menu_link(&$variables) {
     $element['#attributes']['class'][] = 'active';
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
