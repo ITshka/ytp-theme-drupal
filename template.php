@@ -79,6 +79,15 @@ function ytp_theme_preprocess_page(&$variables) {
   else {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
+
+  $site_section = menu_get_active_trail();
+  if ( array_key_exists(1, $site_section) ){
+    $variables['site_section'] = $site_section[1]['title'];
+  }
+  else{
+    $variables['site_section'] = '';
+  }
+ 
 }
 
 /**
@@ -107,7 +116,7 @@ function ytp_theme_preprocess_html(&$variables) {
          $variables['classes_array'][] = 'navbar-is-static-top';
          break;
    }
-   $domain = "avoidata.fi";
+   $domain = "avoindata.fi";
    if (!empty($_SERVER['HTTP_HOST']) && !is_numeric($_SERVER['HTTP_HOST'][0])) {
     $domain = implode('.', array_slice(explode('.', $_SERVER['HTTP_HOST']), -2));
    }
