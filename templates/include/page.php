@@ -93,7 +93,7 @@
     <?php print render($page['header']); ?>
   </header> <!-- /#page-header -->
 
-
+  <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
 
   <div class="row">
     <?php if (!empty($page['sidebar_first'])): ?>
@@ -108,7 +108,7 @@
           print $ytp_custom_top;
         }
       ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+     
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title)): ?>
