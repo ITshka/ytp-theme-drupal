@@ -82,8 +82,9 @@
     <div class="highlighted"><?php print render($page['highlighted']); ?></div>
   </div>
 <?php endif; ?>
-
-
+<div class="container">
+ <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+ </div>
 <div class="main-container container">
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
@@ -93,11 +94,10 @@
     <?php print render($page['header']); ?>
   </header> <!-- /#page-header -->
 
-  <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
 
   <div class="row">
     <?php if (!empty($page['sidebar_first'])): ?>
-      <aside class="col-sm-4" role="complementary">
+      <aside class="col-sm-4 ytp-nav" role="complementary">
         <?php print render($page['sidebar_first']); ?>
       </aside>  <!-- /#sidebar-first -->
     <?php endif; ?>
