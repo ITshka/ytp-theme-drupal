@@ -172,7 +172,17 @@ function ytp_theme_menu_link(&$variables) {
     $element['#attributes']['class'][] = 'active';
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  
+
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
+function ytp_theme_form_alter(&$form, &$form_state, $form_id) {
+  $function = "ytp_theme_{$form_id}_submit";
+  if (function_exists($function))
+    $form['#submit'][] = $function;
+}
+
+function ytp_theme_user_register_form_submit($form, &$form_state) {
+  global $language;
+  $form_state['redirect'] = array('/data/' . $language->language . '/user/edit', array('external' => TRUE));
+}
