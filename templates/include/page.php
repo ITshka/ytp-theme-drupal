@@ -82,7 +82,7 @@
     <div class="highlighted"><?php print render($page['highlighted']); ?></div>
   </div>
 <?php endif; ?>
-<div class="container toolbar">
+<div class="container toolbar drupal-crumbs">
  <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
  </div>
 <div class="main-container container">
