@@ -184,9 +184,9 @@ function ytp_theme_breadcrumb($variables) {
   $output = '';
   $breadcrumb = $variables['breadcrumb'];
   if($breadcrumb){
-    if ($GLOBALS['language']->language="fi"){
+    if ($GLOBALS['language']->language=="fi"){
       $breadcrumb[0]="<a href=\"/fi\">Etusivu</a>";
-    }else if ($GLOBALS['language']->language="se"){
+    }else if ($GLOBALS['language']->language=="se"){
       $breadcrumb[0]="<a href=\"/se\">Start</a>";
     }
   }
