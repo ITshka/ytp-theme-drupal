@@ -87,7 +87,7 @@ function ytp_theme_preprocess_page(&$variables) {
   else{
     $variables['site_section'] = '';
   }
- 
+
 }
 
 /**
@@ -215,3 +215,12 @@ function ytp_theme_user_register_form_submit($form, &$form_state) {
   global $language;
   $form_state['redirect'] = array('/data/' . $language->language . '/user/edit', array('external' => TRUE));
 }
+
+function ytp_theme_preprocess_node(&$variables){
+    $date = format_date($variables['created'], 'short');
+    #todo get organization for username
+    #$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' =>$date));
+    $variables['submitted'] = t('updated') . ' ' . t('!datetime | !username', array('!username' => $variables['name'], '!datetime' =>$date));
+}
+
+?>
